@@ -98,21 +98,21 @@ solve_system <- function(type = "reinfection",
 
   if (type == "basic") {
     solution <- as.data.frame(
-      ode(
+      deSolve::ode(
         y = initial_conditions, func = basic_model,
         parms = parameters, times = timesteps
       )
     )
   } else if (type == "complex") {
     solution <- as.data.frame(
-      ode(
+      deSolve::ode(
         y = initial_conditions, func = complex_model,
         parms = parameters, times = timesteps
       )
     )
   } else {
     solution <- as.data.frame(
-      ode(
+      deSolve::ode(
         y = initial_conditions, func = reinfection_model,
         parms = parameters, times = timesteps
       )
@@ -120,7 +120,7 @@ solve_system <- function(type = "reinfection",
   }
 
   if (!is.null(path_num)) {
-    solution <- solution %>% mutate(path = path_num)
+    solution <- dplyr::mutate(solution, path = path_num)
   }
 
   return(solution)

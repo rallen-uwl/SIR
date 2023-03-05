@@ -23,13 +23,13 @@ get_color_palette <- function() {
 #' @export
 generate_base_plot <- function(data = NULL) {
   if (is.null(data)) {
-    plot <- plot_ly(type = "scatter", mode = "lines", colors = cbPalette)
+    plot <- plotly::plot_ly(type = "scatter", mode = "lines", colors = cbPalette)
   } else {
-    plot <- plot_ly(data = data, type = "scatter", mode = "lines")
+    plot <- plotly::plot_ly(data = data, type = "scatter", mode = "lines")
   }
   
   plot <- plot %>%
-    layout(xaxis = list(showline = TRUE), yaxis = list(showline = TRUE))
+    plotly::layout(xaxis = list(showline = TRUE), yaxis = list(showline = TRUE))
 }
 
 #' Generate Population Plot
@@ -42,7 +42,7 @@ generate_base_plot <- function(data = NULL) {
 #' @export
 generate_population_plot <- function(data = NULL) {
   plot <- generate_base_plot(data) %>%
-    layout(yaxis = list(range = c(0,100)))
+    plotly::layout(yaxis = list(range = c(0,100)))
 }
 
 #' Generate 3D Plot
@@ -52,7 +52,7 @@ generate_population_plot <- function(data = NULL) {
 #' @return An 3D plot object
 #' @export
 generate_3D_plot <- function() {
-  plot_ly(type = "scatter3d", mode = "lines+markers", colors = cbPalette, marker = list(size = 1.5, showscale = FALSE))
+  plotly::plot_ly(type = "scatter3d", mode = "lines+markers", colors = cbPalette, marker = list(size = 1.5, showscale = FALSE))
 }
 
 #' Generate Tenery Plot
@@ -62,6 +62,6 @@ generate_3D_plot <- function() {
 #' @return An tenery plot object
 #' @export
 generate_tenery_plot <- function() {
-  plot_ly(type = "scatterternary", mode = "scatter", colors = cbPalette)
+  plotly::plot_ly(type = "scatterternary", mode = "scatter", colors = cbPalette)
 }
 
