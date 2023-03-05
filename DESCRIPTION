@@ -1,0 +1,15 @@
+Package: SIR
+Title: SIR Research Package
+Version: 0.0.0.9000
+Authors@R: 
+    person("Robert", "Allen", , "rallen@uwlax.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: R code to support epidemiology research of Robert Allen at the University of Wisconsin-La Crosse.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Imports:
+	deSolve,
+	plotly
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
