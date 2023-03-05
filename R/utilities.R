@@ -18,7 +18,7 @@ combine_populations <- function(solution = NULL, type = "reinfection") {
     solution <- dplyr::mutate(solution, S = S1 + S2, I = A1 + A2 + I1 + I2, R = R1 + R2)
   }
   
-  return (s)
+  return (solution)
 }
 
 #' Check Distance from Equilibrium
