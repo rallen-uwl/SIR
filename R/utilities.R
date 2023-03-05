@@ -11,12 +11,14 @@ combine_populations <- function(solution = NULL, type = "reinfection") {
   stopifnot(!is.null(solution))
 
   if (type == "basic") {
-    solution %>% mutate(S = S1 + S2, I = Is + Ia)
+    solution <- dplyr::mutate(solution, S = S1 + S2, I = Is + Ia)
   } else if (type == "complex") {
-    solution %>% mutate(S = S1 + S2, I = A1 + A2 + Is)
+    solution <- dplyr::mutate(solution, S = S1 + S2, I = A1 + A2 + Is)
   } else {
-    solution %>% mutate(S = S1 + S2, I = A1 + A2 + I1 + I2, R = R1 + R2)
+    solution <- dplyr::mutate(solution, S = S1 + S2, I = A1 + A2 + I1 + I2, R = R1 + R2)
   }
+  
+  return (s)
 }
 
 #' Check Distance from Equilibrium
